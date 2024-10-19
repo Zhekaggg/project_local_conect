@@ -37,7 +37,7 @@ try:
         frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
 
         # Отображение изображения
-        cv2.imshow('Полученный экран', frame)
+        cv2.imshow('Полученное видео с камеры', frame)
         if cv2.waitKey(1) == 27:  # Нажмите ESC для выхода
             break
 
