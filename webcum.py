@@ -24,12 +24,11 @@ try:
         if not ret:
             break
 
-        # Сжатие изображения для уменьшения трафика
+        # Сжатие изображения убрано
         frame = cv2.resize(frame, (640, 480))
-        encoded, buffer = cv2.imencode('.jpg', frame)
 
-        # Сериализация данных и отправка
-        data = pickle.dumps(buffer)
+        # Сериализация данных с использованием pickle
+        data = pickle.dumps(frame)
         message_size = struct.pack("L", len(data))
 
         # Отправка размера сообщения и самого сообщения
