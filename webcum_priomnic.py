@@ -23,7 +23,7 @@ try:
         data = data[payload_size:]
         msg_size = struct.unpack("L", packed_msg_size)[0]
 
-        # Получение самого сообщения (изображения)
+        # Получение самого сообщения (кадра)
         while len(data) < msg_size:
             data += client_socket.recv(4096)
         
@@ -32,9 +32,6 @@ try:
 
         # Десериализация данных
         frame = pickle.loads(frame_data)
-
-        # Декодирование изображения
-        frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
 
         # Отображение изображения
         cv2.imshow('Полученное видео с камеры', frame)
